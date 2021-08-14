@@ -1,8 +1,47 @@
+import { Component } from 'react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'semantic-ui-css/semantic.min.css';
+import UpdateData from './components/update_data_button';
+import ScanPanel from './components/scans_panel';
+import BackTestPanel from './components/backtest_panel';
+import TechnicalsPanel from './components/technicals_panel';
+import ComparisonPanel from './components/comparison_panel';
+import Header from './components/header';
+
+
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {apiProvider : null}
+    this.setAPIProvider = this.setAPIProvider.bind(this);
+  }
+
+
+  async setAPIProvider (apiProvider) {
+    console.log("main app");
+    await this.setState({apiProvider})
+    console.log(apiProvider);
+  }
+
+  render() {
+    return (
+      <div className = "root">
+        <Header setAPIProvider={this.setAPIProvider}/>
+        <div className = "content">
+          <UpdateData  apiProvider={this.state.apiProvider}/>
+          <ScanPanel apiProvider={this.state.apiProvider}/>
+          <TechnicalsPanel apiProvider={this.state.apiProvider}/>
+          <BackTestPanel apiProvider={this.state.apiProvider}/>
+          <ComparisonPanel apiProvider={this.state.apiProvider}/>
+        </div>
+      </div>
+    );
+  };
+}
 
 ReactDOM.render(
   <React.StrictMode>
