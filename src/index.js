@@ -10,6 +10,7 @@ import BackTestPanel from './components/backtest_panel';
 import TechnicalsPanel from './components/technicals_panel';
 import ComparisonPanel from './components/comparison_panel';
 import Header from './components/header';
+import DeployStrategyPanel from './components/deploy_strategy_panel';
 
 
 class App extends Component {
@@ -37,6 +38,7 @@ class App extends Component {
           <TechnicalsPanel apiProvider={this.state.apiProvider}/>
           <BackTestPanel apiProvider={this.state.apiProvider}/>
           <ComparisonPanel apiProvider={this.state.apiProvider}/>
+          <DeployStrategyPanel apiProvider={this.state.apiProvider}/>
         </div>
       </div>
     );

@@ -4,6 +4,7 @@ import { Multiselect } from "multiselect-react-dropdown";
 const strategyOptions = [
   { key: "CPCross50DayMA", value : "CPCross50DayMA"},
   { key: "20DayMACrossOver50DayMA", value: "20DayMACrossOver50DayMA"},
+  { key: "5DayMACrossOver20DayMA", value: "5DayMACrossOver20DayMA"},
 ]
 
 const SelectStrategiesToCompare = (props) => {

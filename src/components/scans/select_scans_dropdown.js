@@ -13,6 +13,8 @@ const scanOptions = [
   { key: "50DaySMACross100DaySMAFromAbove", value: "50DaySMACross100DaySMAFromAbove"},
   { key: "50DaySMACross200DaySMAFromAbove", value: "50DaySMACross200DaySMAFromAbove"},
   { key: "20DaySMACross200DaySMAFromAbove", value: "20DaySMACross200DaySMAFromAbove"},
+  { key: "5DaySMACross20DaySMAFromAbove", value: "5DaySMACross20DaySMAFromAbove"},
+  { key: "5DaySMACross20DaySMAFromBelow", value: "5DaySMACross20DaySMAFromBelow"},
 ]
 
 const SelectScansToRun = (props) => {

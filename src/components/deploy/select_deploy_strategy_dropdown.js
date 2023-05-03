@@ -10,24 +10,24 @@ const strategyOptions = [
 
 ]
 
-const SelectStrategyDropDown = (props) => {
+const SelectDeployStrategyDropDown = (props) => {
 
   // set value for default selection
   const [selectedValue, setSelectedValue] = useState("");
 
  // handle onChange event of the dropdown
   const handleChange = e => {
-    props.onStrategySelection(e.value);
+    var idx = props.id;
+    props.onStrategySelection(idx, e.value);
     setSelectedValue(e.value);
-
   }
 
   return (
     <div className="search-bar">
-      <Select id="backtest-strategy" value={strategyOptions.find(obj => obj.value === selectedValue)}
+      <Select value={strategyOptions.find(obj => obj.value === selectedValue)}
         onChange={handleChange} options={strategyOptions} placeholder="Strategy"/>
     </div>
   );
 }
 
-export default SelectStrategyDropDown
+export default SelectDeployStrategyDropDown

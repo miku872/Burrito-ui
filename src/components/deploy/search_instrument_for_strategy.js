@@ -54,20 +54,22 @@ const instruments = [
   { key: 'WIPRO'},
 ]
 
-const SearchInstrumentForIndicators = (props) => {
+const SearchInstrumentForStrategy = (props) => {
 
-  const [selectedValues, setSelectedValues] = useState([]);
+  const [selectedValues, setSelectedValues] = useState(props.selections);
 
-  const onSelect =  (selectedList, selectedItem, id) => {
-    props.onInstrumentSelection(selectedItem.key);
-    var prevState = selectedValues;
-    prevState.push(selectedItem.key);
-    setSelectedValues(prevState);
+  const onSelect =  (selectedList, selectedItem) => {
+    var panelIdx = props.id;
+    // var prevState = selectedValues;
+    // prevState.push(selectedItem.key);
+    props.onInstrumentSelection(panelIdx, selectedItem.key);
+    // setSelectedValues(prevState);
   }
 
   const onRemove = (selectedList, removedItem) => {
-    props.onInstrumentDeletion(selectedList);
-    setSelectedValues(selectedList)
+    var panelIdx = props.id;
+    props.onInstrumentDeletion(panelIdx, selectedList);
+    // setSelectedValues(selectedList)
   }
 
   return (
@@ -75,8 +77,8 @@ const SearchInstrumentForIndicators = (props) => {
     <form>
       <Multiselect
         options={instruments}
-        displayValue="key"
-        selectedValues={selectedValues}
+        displayValue = "key"
+        // selectedValues={props.selectedValues}
         onSelect={onSelect}
         onRemove={onRemove}
         placeholder="Stocks"
@@ -86,4 +88,4 @@ const SearchInstrumentForIndicators = (props) => {
   );
 }
 
-export default SearchInstrumentForIndicators;
+export default SearchInstrumentForStrategy;
